@@ -1,0 +1,49 @@
+@startuml
+
+
+[*] --> index.jsp
+
+state login Page {
+    -->[login from frontpage] "login page"
+        
+            if "account exists" then
+                --> [false] "Front Page / index"
+            else
+
+            --> [true] if "isAdmin" then
+        
+                    state user{
+                    --> [false] "userPage"
+                        --> "make Order" 
+                            --> "userPage"
+                    --> "add to balance"
+                        --> "userPage"
+                    --> "buy"
+                        --> "userPage"
+                    --> "log out"
+                        --> "Front Page / index"  
+                        }
+                else
+                    state admin{
+                    --> [true] "adminView"
+                    --> "read more"
+                        --> "adminView"
+                    --> "add money"
+                        --> "adminView"
+                    --> "log out"
+                        --> "Front Page / index"
+                        }
+                        }
+state createAccount{
+    --> "create Account"
+            --> "Front Page / index"
+}
+
+
+
+
+
+
+
+
+@enduml

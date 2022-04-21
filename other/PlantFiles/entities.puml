@@ -1,0 +1,120 @@
+@startuml
+
+class userDBEntity{
+    String email
+    String password
+    String role
+
+    getEmail()
+    getPassword()
+    getRole()
+}
+
+class udvalgDBEntity{
+    String valg
+    String type
+    float price
+
+    getValg()
+    getType()
+    getPrice()
+}
+
+class ordreDBEntity{
+    int ordreId
+    int kvitteringsId
+    String bottom
+    String top
+    
+    getOrdreId()
+    getKvitteringsId()
+    getBottom()
+    getTop()
+}
+
+class kvitteringDBEntity{
+    int kvitteringsId
+    String email
+    String status
+    String datoOprettet
+
+    getKvitteringsId()
+    getEmail()
+    getStatus()
+    getDatoOprettet()
+}
+
+class walletDBEntity{
+    String Email
+    float balance
+
+    getEmail()
+    getBalance()
+}
+
+class udvalg{
+    String valg
+    String type
+    float pris
+}
+
+class ordre{
+    (udvalg, udvalg) choices
+    int ordreId
+    int kvitteringsId
+
+    getPrice()
+    getChoices()
+}
+
+class kvittering{
+    int KvitteringsId
+    ordre[] orders
+    String Email
+    String Status
+    String DatoOprettet
+
+    getId()
+    getOrders()
+    getOrder(int)
+    getEmail()
+    getStatus()
+    getDatoOprettet()
+}
+
+class account{
+    String email
+    String role
+    String password
+    kvittering[] receipts
+    float balance
+
+    getEmail()
+    getRole()
+    
+    getReceipts()
+    addReceipt()
+
+    setCartId()
+    getCart()
+    isCartEmpty()
+    addToCart()
+    canAffordCart()
+    getCartTotal()
+    buyCart()
+    getCartSize()
+    setCartStatus()
+
+    isAdmin()
+    
+    getBalance()
+    detDepositWallet()
+    addToBalance()
+    subtractFromBalance()
+}
+
+account "1"--"0..*" kvittering
+kvittering "1"--"0..*" ordre
+ordre --"2" udvalg
+
+@enduml

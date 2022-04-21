@@ -1,0 +1,19 @@
+@startuml
+
+class userActions {
+    login
+    logout
+    addMoney
+    makeOrder
+    payorder
+    getOrders
+}
+
+class adminActions{
+    login
+    logout
+    checkOrders
+    changeOrderStatus
+    addMoneyToAccount
+}
+@enduml

@@ -1,0 +1,15 @@
+
+@startuml
+
+(*) --> kunde laver ordre
+        --> ordre gemmes
+            --> Olsen eller kunde overfører penge
+            --> penge bliver modtaget
+            --> kunde betaler
+        --> ordre godkendes
+    --> olsen begynder at lave ordre
+
+
+
+
+@enduml

@@ -1,0 +1,58 @@
+@startuml
+
+class accountEntityConverter{
+
+    createAccount(user,wallet)
+    
+    getDBUser(account)
+    getDBWallet(account)
+
+}
+
+class kvitteringsEntityConverter{
+
+
+    getDBKvittering(kvittering)
+
+    createKvittering(DBKvittering)
+}
+
+class ordreEntityConverter{
+    getDBOrdre(ordre)
+    createOrdre(DBOrdre)
+}
+
+class udvalgEntityConverter{
+    
+    getDBUdvalg(udvalg)
+    createUdvalg(DBUdvalg)
+
+}
+
+class KvitteringBuilder{
+    fetchAllOrders()
+    addAllOrders()
+    addOrdre()
+
+    getMissingFields()
+    isReadyToBuild()
+}
+
+class AccountBuilder{
+    fetchAllReceipts()
+    addAllReceipts()
+    fetchWallet()
+    setrBalance()
+    getMissingFields()
+    isReadyToBuild()
+}
+
+class SQLExecutor{
+    simpleInsert()
+    simpleDelete()
+    simpleUpdate()
+    simpleSelect()
+    conditionalSelect()   
+}
+
+@enduml

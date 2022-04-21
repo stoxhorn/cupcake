@@ -1,0 +1,20 @@
+@startuml
+
+
+[*] --> index.jsp
+index.jsp -> createUser.jsp
+createUser.jsp -> index.jsp
+
+index.jsp -> login.jsp : via href
+
+login.jsp --> shop.jsp : [Role = User] /login -> /MakeKvittering
+shop.jsp : Account user
+shop.jsp --> shop.jsp : /addMoney, /makeOrder, /buyCart
+shop.jsp -> index.jsp : /logout
+
+login.jsp ---> adminView.jsp : [Role = Admin] /prepareAdminView
+adminView.jsp : Account user
+adminView.jsp --> adminView.jsp : /addMoneyToAccount, /readKvittering
+adminView.jsp -> index.jsp : /logout
+
+@enduml

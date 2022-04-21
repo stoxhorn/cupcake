@@ -1,0 +1,31 @@
+@startuml    
+
+class User{
+    getUser
+    createUser
+    editUser
+    deleteUser    
+}
+
+class Ordre{
+    getOrdre
+    createOrdre
+    editOrdre
+    deleteOrdre
+}
+
+class Udvalg{
+    getUdvalg
+    createUdvalg
+    editUdvalg
+    deleteUdvalg
+}
+
+class Wallet{
+    getWallet
+    createWallet
+    editWallet
+    deleteWallet
+}
+
+@enduml
