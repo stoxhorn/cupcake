@@ -17,12 +17,8 @@
 
         <h3>You can log in here</h3>
 
-        <form action="login" method="post">
-            <label for="email">Username: </label>
-            <input type="text" id="email" name="email"/>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+        <form action="testServlet" method="post">
+            <input type="submit"  value="run test"/>
         </form>
 
     </jsp:body>

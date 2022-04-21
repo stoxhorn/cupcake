@@ -15,14 +15,16 @@
 
     <jsp:body>
 
-        <h3>You can log in here</h3>
+        <h3>Create Account Here:</h3>
 
-        <form action="login" method="post">
+        <form action="createAccount" method="post">
             <label for="email">Username: </label>
             <input type="text" id="email" name="email"/>
+
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+
+            <input type="submit"  value="Create Account"/>
         </form>
 
     </jsp:body>

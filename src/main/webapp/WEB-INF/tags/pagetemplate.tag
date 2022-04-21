@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/cphbusiness.png" width="400px;" class="img-fluid"/>
+                <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="400px;" class="img-fluid"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 1</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 2</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
+                    <p class="nav-item nav-link" href="${sessionScope.linkOne}/">${sessionScope.stringOne}</p>
+                    <p class="nav-item nav-link" href="${sessionScope.linkTwo}/">${sessionScope.stringTwo}</p>
+                    <p class="nav-item nav-link" href="${sessionScope.linkThree}/">${sessionScope.stringThree}</p>
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>
@@ -42,6 +42,31 @@
             </div>
         </div>
     </nav>
+    <div type ="container">
+        <c:if test="${sessionScope.user != null }">
+            <div class = "row">
+                <div class = "col"></div>
+                <div class = "col">Logged in as: ${sessionScope.user.email}</div>
+                <div class = "col">Current Balance: ${sessionScope.user.getRoundedBalance()}</div>
+                <div class = "col">View Past Orders</div>
+            </div>
+            <div class = "row">
+                <div class = "col"></div>
+                <div class = "col"></div>
+                <div class = "col">
+                    <c:if test="${!sessionScope.user.isAdmin()}">
+                        <form action="addMoney" method="post">
+                            <input type="number" id="deposit" name="deposit" value="0.0" step="0.01">
+                            <input type="submit" name="deposit" value="add to balance">
+                        </form>
+                    </c:if>
+
+                </div>
+                <div class = "col"></div>
+            </div>
+        </c:if>
+
+    </div>
 </header>
 
 <div id="body" class="container mt-4" style="min-height: 400px;">
